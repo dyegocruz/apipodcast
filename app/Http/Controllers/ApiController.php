@@ -46,10 +46,12 @@ class ApiController extends Controller {
 	}
 
 	public function readFeed(Request $request){		
-		if(Http_Helper::isValidUrl($request->query('feedUrl'))){
+		$url = 'http://'.$request->query('feedUrl');
+	
+		if(Http_Helper::isValidUrl($url)){
 			
 			header('Content-Type: application/json; charset=utf-8');
-			$file_xml = $request->query('feedUrl');
+			$file_xml = $url;
 
 			$feedburner = false;
 			if (strpos($file_xml,'feedburner') !== false) {

@@ -16,3 +16,8 @@ In this first version, just return searches about podcast.
 
 Functional Example: http://benjaminstudio.com.br/apipodcast/itunesSearchAPI/BR/513+podcast
 
+2. Retriving information from Feed RSS Podcast in JSON Format.
+
+/apipodcast/readFeed?feedUrl={url without http://}
+
+Functional Example: http://benjaminstudio.com.br/apipodcast/readFeed?feedUrl=feeds.feedburner.com/513-podcast
