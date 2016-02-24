@@ -1,0 +1,21 @@
+#RewriteEngine on
+#RewriteRule ^(.*)$ public/$1 [L]
+
+#RewriteEngine on
+#RewriteRule ^(.*)$ /indicados/public/$1 [NC,L,R=301]
+
+#Header set Access-Control-Allow-Origin "http://localhost"
+#Header set Access-Control-Allow-Methods "GET,POST,PUT,DELETE,OPTIONS"
+#Header set Access-Control-Allow-Credentials "true"
+
+
+#RewriteEngine On
+#RewriteRule .* index.php
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php [L]
+</IfModule>
