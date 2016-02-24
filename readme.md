@@ -11,7 +11,8 @@ In this first version, just return searches about podcast.
 /apipodcast/iTunesSearchAPI/{country}/{term}
 
 {coutry} = BR/US (Country that you want to search podcast)
+
 {term} = The name that you want to seach
 
-Functional Example: http://benjaminstudio.com.br/apipodcast/iTunesSearchAPI/BR/513-podcast
+Functional Example: http://benjaminstudio.com.br/apipodcast/itunesSearchAPI/BR/513+podcast
 
