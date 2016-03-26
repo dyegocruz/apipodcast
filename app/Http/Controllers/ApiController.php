@@ -50,7 +50,7 @@ class ApiController extends Controller {
 	
 		if(Http_Helper::isValidUrl($url)){
 			
-			header('Content-Type: application/json; charset=utf-8');
+			//header('Content-Type: application/json; charset=utf-8');
 			$file_xml = $url;
 
 			$feedburner = false;
@@ -63,12 +63,12 @@ class ApiController extends Controller {
 			}
 
 		    $xmlDoc = new \DOMDocument();
-			$xmlDoc->load($file_xml);
+			$xmlDoc->load($file_xml);			
 
 			$root = $xmlDoc->documentElement;
 			
 			$json_arr_podcast = array('podcast'=>array(),'episodes'=>array());
-
+			
 			foreach ($root->childNodes AS $feed) {
 
 				if($feed->childNodes){
@@ -92,8 +92,14 @@ class ApiController extends Controller {
 							if($feedNodeName == 'item'){					
 								$episodio = array();
 								foreach($feedNode->childNodes as $item){
+									
 									if($item->nodeName != '#text'){
 										$itemNodeName = $item->nodeName;
+
+										if($itemNodeName == 'content:encoded'){											
+											preg_match('/<img.+?src="(.+?)"/', $item->nodeValue, $matches);
+											$episodio['ep_cover'] = $matches[1];										    
+										}									
 
 										if($itemNodeName == 'title'){
 											$episodio['title'] = $item->nodeValue;
@@ -143,7 +149,8 @@ class ApiController extends Controller {
 				}
 			}
 
-			echo json_encode($json_arr_podcast);		
+			//echo json_encode($json_arr_podcast);
+			return response()->json($json_arr_podcast);
 		}
 
 	}
