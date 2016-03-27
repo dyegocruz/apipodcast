@@ -141,9 +141,15 @@ class ApiController extends Controller {
 										}								
 									}
 
+									//Tratando variáveis vazias não retornadas pelo feed do Podcast
 									if(!isset($episodio['duration'])){
 										$episodio['duration'] = "0";
 									}
+
+									if(!isset($episodio['description'])){
+										$episodio['description'] = "";
+									}
+									//--Tratando variáveis vazias não retornadas pelo feed do Podcast
 								}
 
 								array_push($json_arr_podcast['episodes'],$episodio);
