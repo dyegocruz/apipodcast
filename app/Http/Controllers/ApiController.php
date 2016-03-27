@@ -49,8 +49,7 @@ class ApiController extends Controller {
 		$url = 'http://'.$request->query('feedUrl');
 	
 		if(Http_Helper::isValidUrl($url)){
-			
-			//header('Content-Type: application/json; charset=utf-8');
+					
 			$file_xml = $url;
 
 			$feedburner = false;
@@ -137,11 +136,16 @@ class ApiController extends Controller {
 											}
 										}
 
-										if($itemNodeName == 'itunes:duration'){
+										if($itemNodeName == 'itunes:duration'){											
 											$episodio['duration'] = Http_Helper::getDuration($item->nodeValue);
 										}								
 									}
+
+									if(!isset($episodio['duration'])){
+										$episodio['duration'] = "0";
+									}
 								}
+
 								array_push($json_arr_podcast['episodes'],$episodio);
 							}				
 						}
