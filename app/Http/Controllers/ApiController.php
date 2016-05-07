@@ -95,9 +95,13 @@ class ApiController extends Controller {
 									if($item->nodeName != '#text'){
 										$itemNodeName = $item->nodeName;
 
-										if($itemNodeName == 'content:encoded'){											
-											preg_match('/<img.+?src="(.+?)"/', $item->nodeValue, $matches);
-											$episodio['ep_cover'] = $matches[1];										    
+										if($itemNodeName == 'content:encoded'){																						
+											// if($item->nodeValue){
+											// 	preg_match('/<img.+?src="(.+?)"/', $item->nodeValue, $matches);
+											// 	$episodio['ep_cover'] = $matches[1];
+											// }else{
+												$episodio['ep_cover'] = '';
+											// }											
 										}									
 
 										if($itemNodeName == 'title'){
@@ -149,7 +153,6 @@ class ApiController extends Controller {
 									if(!isset($episodio['description'])){
 										$episodio['description'] = "";
 									}
-									//--Tratando variáveis vazias não retornadas pelo feed do Podcast
 								}
 
 								array_push($json_arr_podcast['episodes'],$episodio);
