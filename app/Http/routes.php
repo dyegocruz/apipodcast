@@ -22,5 +22,6 @@ $app->get('/', function () use ($app) {
 // $app->group(['prefix' => 'api'], function()
 // {
 $app->get('/itunesSearchAPI/{country}/{term}', 'ApiController@itunesSearchAPI');
+$app->get('/itunesGetTopPodcasts', 'ApiController@itunesGetTopPodcasts');
 $app->get('/readFeed', 'ApiController@readFeed');
 // });

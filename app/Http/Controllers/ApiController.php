@@ -45,6 +45,16 @@ class ApiController extends Controller {
 		
 	}
 
+	public function itunesGetTopPodcasts(){
+		//url adquirida no local https://rss.itunes.apple.com/us/?urlDesc=
+		$url_itunes = 'https://itunes.apple.com/br/rss/toppodcasts/limit=25/explicit=true/json';
+		
+		$json_content = file_get_contents($url_itunes);
+		$json_array = json_decode($json_content);
+
+		return response()->json($json_array);
+	}
+
 	public function readFeed(Request $request){		
 		$url = 'http://'.$request->query('feedUrl');
 	
