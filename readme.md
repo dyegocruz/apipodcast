@@ -1,13 +1,3 @@
-# Laravel PHP Framework
-
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
-
-Developed using the framework Laravel, facilitating the maintain and streamline the process of developing.
-
 ## API PODCAST
 
 This API was built to be a intermediate between a Mobile App and iTunes API Search Apple and with Feed RSS from Podcasts.
@@ -16,9 +6,32 @@ This API was built to be a intermediate between a Mobile App and iTunes API Sear
 
 In this first version, just return searches about podcast.
 
+### Prerequisites
+
+What things you need to run the software?
+
+```
+PHP 5.6.* 
+Composer
+```
+
+### Installing
+
+Open terminal on your apache directory and run the commands below.
+
+```
+git clone https://github.com/dyegocruz/apipodcast.git
+cd apipodcast
+composer install
+```
+
+### Running
+
+To run the application access http://localhost/apipodcast on your browner.
+
 1. Searching podcast in the iTunes Search API
 
-/apipodcast/iTunesSearchAPI/{country}/{term}
+http://localhost/apipodcast/iTunesSearchAPI/{country}/{term}
 
 {coutry} = BR/US (Country that you want to search podcast)
 
@@ -28,12 +41,12 @@ Functional Example: http://benjaminstudio.com.br/apipodcast/itunesSearchAPI/BR/5
 
 2. Retriving top podcasts from iTunes
 
-/apipodcast/itunesGetTopPodcasts
+http://localhost/apipodcast/itunesGetTopPodcasts
 
 Functional Example: http://benjaminstudio.com.br/apipodcast/itunesGetTopPodcasts
 
-3. Retriving information from Feed RSS Podcast in JSON Format.
+3. Retrieving information from Feed RSS Podcast in JSON Format.
 
-/apipodcast/readFeed?feedUrl={url without http://}
+http://localhost/apipodcast/readFeed?feedUrl={url without http://}
 
 Functional Example: http://benjaminstudio.com.br/apipodcast/readFeed?feedUrl=feeds.feedburner.com/513-podcast
